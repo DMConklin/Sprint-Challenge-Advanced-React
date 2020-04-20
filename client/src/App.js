@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { PlayerCard } from './components'
 
 class App extends React.Component {
   constructor() {
@@ -12,7 +12,8 @@ class App extends React.Component {
 
   Api = url => {
     fetch(url)
-    .then(res => this.setState( { players: res.json() } ) )
+    .then(res => res.json() )
+    .then(data => this.setState( { players: data } ))
     .catch(err => console.log(err))
   }
 
@@ -23,7 +24,9 @@ class App extends React.Component {
   render() {
     return(
       <div>
-
+        {this.state.players.map(player => {
+          return <PlayerCard player={player} key={player.id} />
+        })}
       </div>
     )
   }
