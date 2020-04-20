@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { PlayerCard } from './components'
+import PlayerCard from './components/PlayerCard'
 
 class App extends React.Component {
   constructor() {
